@@ -69,10 +69,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Codes\BarCodeEAN13.cs" />
+    <Compile Include="Codes\BarCodeInterface.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\LogActivityEmployee.cs" />
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderService.cs" />
     <Compile Include="Models\Service.cs" />
+    <Compile Include="Tools.cs" />
+    <Compile Include="Windows\ActiveOrdersWindow.xaml.cs">
+      <DependentUpon>ActiveOrdersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\CapchaWindow.xaml.cs">
+      <DependentUpon>CapchaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ClientMainWindow.xaml.cs">
       <DependentUpon>ClientMainWindow.xaml</DependentUpon>
     </Compile>
@@ -84,6 +94,12 @@
     </Compile>
     <Compile Include="Windows\MakeOrderWindow.xaml.cs">
       <DependentUpon>MakeOrderWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ChooseServiceWindow.xaml.cs">
+      <DependentUpon>ChooseServiceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\OrderWindow.xaml.cs">
+      <DependentUpon>OrderWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +114,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\ActiveOrdersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CapchaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ClientMainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +135,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\MakeOrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ChooseServiceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\OrderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

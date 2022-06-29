@@ -22,6 +22,7 @@ namespace SkiResortWPF.Windows
         AppContext db;
         Models.Employee employee;
         EmployeeTrackerWindow etw;
+        MakeOrderWindow mow;
         public EmployeeMainWindow(AppContext db, Models.Employee employee)
         {
             InitializeComponent();
@@ -47,6 +48,31 @@ namespace SkiResortWPF.Windows
         private void EmployeeTrackerWindow_Closed(object sender, EventArgs e)
         {
             this.etw = null;
+        }
+        private void MakeOrderWindow_Closed(object sender, EventArgs e)
+        {
+            this.mow = null;
+        }
+
+        private void makeOrder_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.etw == null)
+            {
+                this.mow = new MakeOrderWindow(this.db);
+                this.mow.Closed += MakeOrderWindow_Closed;
+            }
+            this.mow.Show();
+        }
+
+        private void activeOrders_Click(object sender, RoutedEventArgs e)
+        {
+            Windows.ActiveOrdersWindow window;
+            window = new Windows.ActiveOrdersWindow(db);
+            window.Closed += (s, o) => {
+                this.Visibility = Visibility.Visible;
+            };
+            this.Visibility = Visibility.Hidden;
+            window.Show();
         }
     }
 }

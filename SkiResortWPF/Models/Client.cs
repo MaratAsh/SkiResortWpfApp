@@ -28,5 +28,7 @@ namespace SkiResortWPF.Models
         {
             return this.Password == Password;
         }
+        [NotMapped]
+        public String StringRepresentaion { get => String.Format("{0} {1} {2}", LastName, FirstName, Patronymic); }
     }
 }

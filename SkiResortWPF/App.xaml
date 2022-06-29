@@ -76,5 +76,79 @@
         <Style x:Key="HeaderImage" TargetType="Image">
             <Setter Property="Margin" Value="0 10 10 10"/>
         </Style>
+
+
+        <Style x:Key="ServiceBorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1,1,1,1"/>
+            <Setter Property="CornerRadius" Value="10,20,10,30"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style x:Key="ServiceGridHeaderStyle" TargetType="Grid">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ServiceHeaderTBStyle" TargetType="TextBlock">
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="ServiceGridStyle" TargetType="Grid">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ServiceGridColumnIdStyle" TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="2*"/>
+
+        </Style>
+        <Style x:Key="ServiceGridColumnTitleStyle" TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="6*"/>
+        </Style>
+        <Style x:Key="ServiceGridColumnCodeStyle" TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="4*"/>
+        </Style>
+        <Style x:Key="ServiceGridColumnCostStyle" TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="2*"/>
+        </Style>
+        <Style x:Key="ServiceGridColumnActionStyle" TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="2*"/>
+        </Style>
+
+        <Style x:Key="ServiceIdTB" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ServiceTitleTB" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="ServiceCodeTB" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ServiceCostTB" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ServiceCostStack" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ServiceCostFirstTB" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="ServiceCostSecondTB" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="11"/>
+        </Style>
+        <Style x:Key="ServiceCostDotTB" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="Margin" Value="2 0 0 0"/>
+        </Style>
     </Application.Resources>
 </Application>

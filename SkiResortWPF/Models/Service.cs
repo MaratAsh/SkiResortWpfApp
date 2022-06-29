@@ -21,5 +21,6 @@ namespace SkiResortWPF.Models
         public String CostStringFirst { get => ((int)Cost).ToString(); }
         [NotMapped]
         public String CostStringSecond { get => ((int) (Cost * 10 % 10)).ToString() + ((int)(Cost * 100 % 10)).ToString(); }
+        public virtual ICollection<OrderService> ServiceOrders { get; set; }
     }
 }

@@ -13,14 +13,26 @@ namespace SkiResortWPF.Models
     {
         [Key]
         public int Id { get; set; }
-        [NotMapped]
-        public String OrderCode { get => ""; }
+        public String OrderCode { get => String.Format("{0}/{1}", ClientId, CreationDate.ToString("dd.MM.yyyy")); }
         public DateTime CreationDate { get; set; }
-        public DateTime OrderTime { get; set; }
+
+        // [Column(TypeName = "TIME")]
+        // public Nullable<DateTime> OrderTime { get; set; }
         public int ClientId { get; set; }
         public byte? Status { get; set; }
-        public DateTime CloseDate { get; set; }
+        public Nullable<DateTime> CloseDate { get; set; }
         public int TimeCount { get; set; }
         public virtual Client Client { get; set; }
+        public virtual ICollection<OrderService> OrderServices { get; set; }
+        public Order()
+        {
+
+        }
+        public Order(DateTime dateTime)
+        {
+            if (CreationDate == null)
+                return;
+            CreationDate = dateTime;
+        }
     }
 }

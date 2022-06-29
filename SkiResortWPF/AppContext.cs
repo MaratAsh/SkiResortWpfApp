@@ -17,5 +17,7 @@ namespace SkiResortWPF
         public DbSet<Models.Employee> Employees { get; set; }
         public DbSet<Models.LogActivityEmployee> LogActivityEmployees { get; set; }
         public DbSet<Models.Service> Services { get; set; }
+        public DbSet<Models.OrderService> OrderServices { get; set; }
+        public DbSet<Models.Order> Orders { get; set; }
     }
 }

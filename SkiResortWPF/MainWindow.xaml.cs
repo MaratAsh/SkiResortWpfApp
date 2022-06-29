@@ -22,6 +22,7 @@ namespace SkiResortWPF
     public partial class MainWindow : Window
     {
         AppContext db;
+        int attempts;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +31,8 @@ namespace SkiResortWPF
             db.Employees.Load();
             ChangePasswordField();
             // gohufreilagrau-3818@yopmail.com	cl12345
+            // (new Windows.MakeOrderWindow(db)).Show();
+            attempts = 0;
         }
         private void ChangePasswordField()
         {
@@ -63,6 +66,12 @@ namespace SkiResortWPF
             PasswordTBField.Text = PasswordPBField.Password;
         }
 
+        private int CheckIf()
+        {
+            if (attempts > 2)
+                return 1;
+            return 0;
+        }
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
             String password, email;
@@ -74,6 +83,17 @@ namespace SkiResortWPF
             password = PasswordPBField.Password;
             email = EmailTBField.Text;
             res = tryLoginAsEmployee(password, email);
+            if (CheckIf() == 1)
+            {
+                Windows.CapchaWindow window;
+
+                window = new Windows.CapchaWindow(CapchaSucceed);
+                window.Closed += (s, o) => {
+                    this.Visibility = Visibility.Visible;
+                };
+                window.Show();
+                return;
+            }
             if (res == Parameters.Authenticated)
             {
                 Windows.EmployeeMainWindow e_w;
@@ -94,18 +114,21 @@ namespace SkiResortWPF
                 logActivityEmployee = new Models.LogActivityEmployee(employee.Id, false);
                 db.LogActivityEmployees.Add(logActivityEmployee);
                 db.SaveChanges();
+                attempts++;
             }
-            client = db.Clients.Where(c => c.Email == email).FirstOrDefault();
-            if (client == null)
+            res = tryLoginAsClient(password, email);
+            if (res == Parameters.EmailNotCorrect)
             {
                 MessageBox.Show("Client Not Exist");
                 return;
             }
-            if (!client.CheckPassword(password))
+            if (res == Parameters.PasswordNotCorrect)
             {
+                attempts++;
                 MessageBox.Show("Password Not Right");
                 return;
             }
+            client = db.Clients.Where(c => c.Email == email).FirstOrDefault();
             Windows.ClientMainWindow w;
             w = new Windows.ClientMainWindow(db, client);
             w.Closed += Window_Child_Closed;
@@ -142,6 +165,10 @@ namespace SkiResortWPF
                 return Parameters.PasswordNotCorrect;
             }
             return Parameters.Authenticated;
+        }
+        private void CapchaSucceed()
+        {
+            attempts = 0;
         }
 
         private void Window_Closed(object sender, EventArgs e)
