@@ -4,6 +4,77 @@
              xmlns:local="clr-namespace:SkiResortWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="TitleTB" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="LabelTB" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="FieldTB" TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="FieldPB" TargetType="PasswordBox">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="MaxWidth" Value="200"/>
+        </Style>
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <ControlTemplate x:Key="PasswordBoxBaseControlTemplate" TargetType="{x:Type PasswordBox}">
+            <Border Background="{TemplateBinding Background}" 
+                x:Name="Bd" BorderBrush="Black"
+                BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="10">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+                <Trigger Property="Width" Value="Auto">
+                    <Setter Property="MinWidth" Value="100"/>
+                </Trigger>
+                <Trigger Property="Height" Value="Auto">
+                    <Setter Property="MinHeight" Value="20"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <Style x:Key="HeaderStack" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+        <Style x:Key="HeaderTitle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="HeaderImage" TargetType="Image">
+            <Setter Property="Margin" Value="0 10 10 10"/>
+        </Style>
     </Application.Resources>
 </Application>

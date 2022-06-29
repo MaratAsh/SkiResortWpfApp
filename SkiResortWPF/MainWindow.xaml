@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SkiResortWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Ski Resort  ~> Login Page" Height="450" Width="800"
+        MinHeight="350" MinWidth="500"
+        Closed="Window_Closed">
     <Window.Resources>
-        <Style x:Key="LabelTB" TargetType="TextBlock">
-            
-        </Style>
+        
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,23 +21,31 @@
             <RowDefinition MaxHeight="100"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-            <Image>
+        <StackPanel Style="{StaticResource HeaderStack}" Grid.Row="0" Grid.Column="1">
+            <Image Style="{StaticResource HeaderImage}">
                 <Image.Source>
                     <BitmapImage UriSource="/SkiResortWPF;component/Resources/logo.png"></BitmapImage>
                 </Image.Source>
             </Image>
-            <TextBlock VerticalAlignment="Center">Ski Resort</TextBlock>
+            <TextBlock VerticalAlignment="Center" Style="{StaticResource HeaderTitle}">Ski Resort</TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1" Background="AliceBlue">
-            <TextBlock>Login Page</TextBlock>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Style="{StaticResource TitleTB}">Login Page</TextBlock>
             <TextBlock Style="{StaticResource LabelTB}">E-mail</TextBlock>
-            <TextBox x:Name="EmailTBField"></TextBox>
+            <TextBox x:Name="EmailTBField"
+                     Style="{StaticResource FieldTB}"
+                     Template="{StaticResource TextBoxBaseControlTemplate}"></TextBox>
             <TextBlock Style="{StaticResource LabelTB}">Password</TextBlock>
-            <TextBox x:Name="PasswordTBField" TextChanged="Password_TextChanged"></TextBox>
-            <PasswordBox x:Name="PasswordPBField" PasswordChanged="PasswordPBField_PasswordChanged"></PasswordBox>
-            <Button x:Name="PasswordChangeVisibilityButton" Click="PasswordChangeVisibilityButton_Click">Show and Hide Password</Button>
-            <Button x:Name="EnterButton" Click="EnterButton_Click">Enter</Button>
+            <TextBox x:Name="PasswordTBField" TextChanged="Password_TextChanged"
+                     Style="{StaticResource FieldTB}"
+                     Template="{StaticResource TextBoxBaseControlTemplate}"></TextBox>
+            <PasswordBox x:Name="PasswordPBField" PasswordChanged="PasswordPBField_PasswordChanged"
+                         Style="{StaticResource FieldPB}"
+                         Template="{StaticResource PasswordBoxBaseControlTemplate}"></PasswordBox>
+            <Button x:Name="PasswordChangeVisibilityButton" Click="PasswordChangeVisibilityButton_Click"
+                    Style="{StaticResource ButtonStyle}">Show and Hide Password</Button>
+            <Button x:Name="EnterButton" Click="EnterButton_Click"
+                    Style="{StaticResource ButtonStyle}">Enter</Button>
         </StackPanel>
     </Grid>
 </Window>
